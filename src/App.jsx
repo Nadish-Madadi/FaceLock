@@ -6,6 +6,8 @@ import Home from './components/home/Home';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
 import Navbar from './components/navbar/Navbar';
+import Face_Detection from './components/face_detection/FaceDetection';
+import FaceDetectionRegister from './components/face_detection_reg/FaceDetectionRegister';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/faceid" element={<Face_Detection />} />
+          <Route path="/faceidregister" element={<FaceDetectionRegister />} />
         </Routes>
       </main>
         <Footer />
