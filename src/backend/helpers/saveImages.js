@@ -19,7 +19,10 @@ data example:
 */
 function saveImage(data) {
     const collection = database.collection("faces");
-    collection.insertOne(data);
+    collection.insertOne(data)
+        .then((res) => {
+            return res.insertedId;
+        })
 };
 
 module.exports = saveImage;
