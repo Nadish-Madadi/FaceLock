@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import FaceDetection from './FaceDetection';
-const FaceDetection = () => {
+import FaceDetectionRegister from './FaceDetectionRegister';
+const FaceDetectionRegister = () => {
   return (
     <div>
       <img src="http://localhost:5000/video_feed" alt="Video Frame" />
@@ -8,4 +8,4 @@ const FaceDetection = () => {
   );
 };
 
-export default FaceDetection;
+export default FaceDetectionRegister;
