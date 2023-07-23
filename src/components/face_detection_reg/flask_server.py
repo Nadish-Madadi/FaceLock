@@ -23,19 +23,17 @@ def gen_frames():  # generate frame by frame from camera
         success, frame = camera.read()  # read the camera frame
         
         if end-start > 5:
-        #     cv2.imwrite("testing_frame_save.jpg", frame)
+            cv2.imwrite("testing_frame_save.jpg", frame)
             camera.release()
-        #     img = Image.open('testing_frame_save.jpg')
-        #     numpydata = asarray(img)
-        #     image_array = {
-        #         "np_array":numpydata
-        #         }
+            # img = Image.open('testing_frame_save.jpg')
+            # numpydata = asarray(img)
+            # image_array = {
+            #     "np_array":numpydata
+            #     }
             
-        #     with open("sample.json", "w") as outfile:
-        #         json.dump(image_array, outfile)
+            # with open("sample.json", "w") as outfile:
+            #     json.dump(image_array, outfile)
 
-            break
-        if not success:
             break
         else:
             ret, buffer = cv2.imencode('.jpg', frame)
