@@ -18,7 +18,7 @@ function FaceDetectionRegister() {
         </h1>
         <div className="flex flex-col items-center space-y-14">
           <iframe 
-            src="http://localhost:5000/video_feed"
+            src="http://localhost:5001/video_feed"
             title="Webcam"
             className="w-[640px] h-[640px] lg:scale-50 sm:scale-[0.4] scale-[0.3] overflow-hidden lg:-my-32 sm:-my-48 -my-56"
           />

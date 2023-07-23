@@ -3,7 +3,7 @@ import FaceDetectionRegister from './FaceDetectionRegister';
 const FaceDetectionRegister = () => {
   return (
     <div>
-      <img src="http://localhost:5000/video_feed" alt="Video Frame" />
+      <img src="http://localhost:5001/video_feed" alt="Video Frame" />
     </div>
   );
 };

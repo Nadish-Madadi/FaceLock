@@ -1,7 +1,9 @@
 from flask import Flask, render_template, Response
+from PIL import Image
 import cv2
 from numpy import asarray
 import time
+import json
 
 
 app = Flask(__name__)
@@ -23,6 +25,15 @@ def gen_frames():  # generate frame by frame from camera
         if end-start > 5:
             cv2.imwrite("testing_frame_save.jpg", frame)
             camera.release()
+            img = Image.open('testing_frame_save.jpg')
+            numpydata = asarray(img)
+            image_array = {
+                "np_array":numpydata
+                }
+            
+            with open("sample.json", "w") as outfile:
+                json.dump(image_array, outfile)
+
             break
         else:
             ret, buffer = cv2.imencode('.jpg', frame)
@@ -31,10 +42,6 @@ def gen_frames():  # generate frame by frame from camera
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # concat frame one by one and show result
 
         end = time.time()
-
-        
-        
-
 
 @app.route('/video_feed')
 def video_feed():
