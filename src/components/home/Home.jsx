@@ -15,7 +15,7 @@ function Home() {
   });
   return (
     <main>
-      <section className="min-h-screen bg-[#005BFF] text-white flex flex-col items-center">
+      <section className="lg:min-h-screen bg-[#005BFF] text-white flex flex-col items-center min-h-fit sm:pb-20">
         <animated.div
           style={fadeIn}
           className="flex flex-col sm:flex-row justify-center sm:justify-between items-center space-y-3 sm:space-y-0 sm:space-x-4 w-full sm:w-auto px-4"
