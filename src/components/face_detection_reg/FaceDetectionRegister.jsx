@@ -1,6 +1,8 @@
 import React from "react";
 import personImage from "../images/FaceIcon.png";
 import { useSpring, animated } from "react-spring";
+import { Link } from "react-router-dom";
+
 
 function FaceDetectionRegister() {
   const fadeIn = useSpring({
@@ -26,10 +28,9 @@ function FaceDetectionRegister() {
           <p class="text-sm sm:text-lg lg:text-2xl text-center">
             Click the button below to scan your face
           </p>
-
-          <button className="bg-blue-400 text-white py-2 px-4 rounded hover:text-gray-300 hover:bg-blue-500 w-52">
-            Scan Face
-          </button>
+          <Link to="/loginsuccess">
+            <button className="bg-blue-400 text-white py-2 px-4 rounded hover:text-gray-300 hover:bg-blue-500 w-52">Submit</button>
+          </Link>
         </div>
       </animated.section>
     </main>

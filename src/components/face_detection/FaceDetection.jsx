@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useSpring, animated } from 'react-spring';
 import Loading from '../loading/Loading';
+import { Link } from "react-router-dom";
+
 
 function FaceDetection() {
     const fadeIn = useSpring({
@@ -27,7 +29,9 @@ function FaceDetection() {
                     />
                     <img src="http://localhost:5000/video_feed" onLoad={handleOnLoad} alt="" style={{display: 'none'}} />
                     <p className="text-sm sm:text-lg lg:text-2xl text-center">Click the button below to scan your face</p>
-                    <button className="bg-blue-400 text-white py-2 px-4 rounded hover:text-gray-300 hover:bg-blue-500 w-52">Scan Face</button>
+                    <Link to="/loginsuccess">
+                        <button className="bg-blue-400 text-white py-2 px-4 rounded hover:text-gray-300 hover:bg-blue-500 w-52">Submit</button>
+                    </Link>
                 </div>
             </animated.section>
         </main>
