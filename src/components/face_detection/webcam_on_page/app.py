@@ -1,7 +1,7 @@
 from flask import Flask, render_template, Response
 import cv2
 from numpy import asarray
-import time
+import time, os
 
 
 app = Flask(__name__)
@@ -21,7 +21,7 @@ def gen_frames():  # generate frame by frame from camera
         success, frame = camera.read()  # read the camera frame
         
         if end-start > 5:
-            cv2.imwrite("testing_frame_save.jpg", frame)
+            cv2.imwrite(os.path.join(app.root_path, 'templates', 'testing_frame_save.jpg'), frame)
             camera.release()
             break
         else:
