@@ -13,6 +13,8 @@ def generate(camera):
     desired_width = 640 
     desired_height = 640 
 
+    binary_array = []
+
     while True:
         frame = camera.frame_capture()
 

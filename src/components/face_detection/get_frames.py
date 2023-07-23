@@ -1,4 +1,5 @@
 import cv2
+from numpy import asarray
 
 class Camera():
     def __init__(self):
