@@ -1,9 +1,31 @@
-import React from "react";
+import React, {useState} from "react";
 import logo from "../images/logo.png";
 import personImage from "../images/FaceIcon.png";
 import { useSpring, animated } from "react-spring";
 import {Link} from "react-router-dom";
 function Register() {
+  const [password, setPassword] = useState('')
+  const [confirm, setConfirm] = useState('')
+  const [submitted, setSubmitted] = useState(false)
+  const specialString = '~`!@#$%^&*()-_+={}[]|\;:"<>,./?'
+
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
+  }
+
+  const handleConfirm = (event) => {
+    setConfirm(event.target.value);
+
+  }
+
+  const submitPassword = (event) => {
+    setSubmitted(true)
+
+    // if(passGood && passMatch){
+    //   do logic here
+    // }
+  }
+
   const fadeIn = useSpring({
     from: { opacity: 0, transform: "translate3d(0, -50px, 0)" },
     to: { opacity: 1, transform: "translate3d(0, 0, 0)" },
@@ -36,21 +58,54 @@ function Register() {
                 placeholder="Email"
                 className="py-2 px-4 bg-white rounded w-52 text-black"
               />
-              <input
-                type="password"
-                placeholder="Password"
-                className="py-2 px-4 bg-white rounded w-52 text-black"
-              />
-              <input
-                type="password"
-                placeholder="Confirm Password"
-                className="py-2 px-4 bg-white rounded w-52 text-black"
-              />
-              <Link to="/faceidregister">
-              <button className="bg-white text-[#005BFF] py-2 px-4 rounded hover:text-gray-300 hover:bg-blue-500 w-52">
-                Sign Up
-              </button>
-              </Link>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  className="py-2 px-4 bg-white rounded w-52 text-black"
+                  onChange={handlePassword}
+                />
+                <div>
+                  <p className="text-xs">Password must include at least:</p>
+                  <ul>
+                    <li className="text-xs">{Array.from(password).some(char => specialString.includes(char)) ? <>&#10004;</> : <>&#183;</>}
+                        &nbsp;1 special character</li>
+                    <li className="text-xs">{password.length >= 6 ? <>&#10004;</> : <>&#183;</>}
+                        &nbsp;6 characters</li>
+                    <li className="text-xs">{/[A-Z]/.test(password)? <>&#10004;</> : <>&#183;</>}
+                        &nbsp;1 capital letter</li>
+                  </ul>
+                </div>
+                <input
+                  type="password"
+                  placeholder="Confirm Password"
+                  className="py-2 px-4 bg-white rounded w-52 text-black"
+                  onChange={handleConfirm}
+                /> 
+                {(submitted && password != '' &&
+                (password !== confirm ||
+                !Array.from(password).some(char => specialString.includes(char)) ||
+                !password.length >= 6 ||
+                !/[A-Z]/.test(password))) && 
+                <div>
+                  <p className="text-xs">Password must be valid</p>
+                  <p className="text-xs">Passwords must match</p>
+                </div>}
+                
+                { password === confirm &&
+                  Array.from(password).some(char => specialString.includes(char)) &&
+                  password.length >= 6 &&
+                  /[A-Z]/.test(password)
+                ? (
+                  <Link to="/faceidregister">
+                    <button className="bg-white text-[#005BFF] py-2 px-4 rounded hover:text-gray-300 hover:bg-blue-500 w-52" onClick={submitPassword}>
+                      Sign Up
+                    </button>
+                  </Link>
+                ) : (
+                  <button className="bg-white text-[#005BFF] py-2 px-4 rounded hover:text-gray-300 hover:bg-blue-500 w-52" onClick={submitPassword}>
+                    Sign Up
+                  </button>
+                )}
             </div>
           </div>
         </div>
