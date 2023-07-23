@@ -7,6 +7,8 @@ import image1 from "../images/LockImage.png"; //the lock, first icon of getting 
 import image2 from "../images/BlueScanImage.png"; //second icon of getting started part
 import image3 from "../images/ClickImage.png"; //third icon of getting started part
 import { Tilt as Tilt } from "react-tilt";
+import './animation.css';
+
 
 function Home() {
   const fadeIn = useSpring({
@@ -72,21 +74,21 @@ function Home() {
         </h1>
         <div className="flex flex-col items-center space-y-14">
           <div className="flex flex-col items-center">
-            <img src={image1} alt="Step 1" class="w-24 sm:w-32 lg:w-48" />
+            <img src={image1} alt="Step 1" class="animateUpDown w-24 sm:w-32 lg:w-48" />
             <p class="text-sm sm:text-lg lg:text-2xl text-center">
               Enter your username & password for a profile, storing the
               credentials securely on the cloud
             </p>
           </div>
           <div className="flex flex-col items-center">
-            <img src={image2} alt="Step 2" class="w-24 sm:w-32 lg:w-48" />
+            <img src={image2} alt="Step 2" class="animateUpDown w-24 sm:w-32 lg:w-48" />
             <p class="text-sm sm:text-lg lg:text-2xl text-center">
               Scan your face with your browser through a camera, allowing for
               our facial recognition to work
             </p>
           </div>
           <div className="flex flex-col items-center">
-            <img src={image3} alt="Step 3" class="w-24 sm:w-32 lg:w-48" />
+            <img src={image3} alt="Step 3" class="animateUpDown w-24 sm:w-32 lg:w-48" />
             <p class="text-sm sm:text-lg lg:text-2xl text-center">
               Access all your stored profiles with your face and the click of a
               button!

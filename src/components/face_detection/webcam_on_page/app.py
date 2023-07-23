@@ -6,6 +6,7 @@ import time
 import json
 
 
+
 app = Flask(__name__)
 
   # use 0 for web camera
@@ -23,7 +24,7 @@ def gen_frames():  # generate frame by frame from camera
         success, frame = camera.read()  # read the camera frame
         
         if end-start > 5:
-            cv2.imwrite("testing_frame_save.jpg", frame)
+            cv2.imwrite(os.path.join(app.root_path, 'templates', 'testing_frame_save.jpg'), frame)
             camera.release()
             img = Image.open('testing_frame_save.jpg')
             numpydata = asarray(img)
