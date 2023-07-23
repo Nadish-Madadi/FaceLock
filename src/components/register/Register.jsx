@@ -8,7 +8,7 @@ function Register() {
   const [confirm, setConfirm] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const specialString = '~`!@#$%^&*()-_+={}[]|\;:"<>,./?'
-
+  const [success, setSuccess] = useState(false)
   const handlePassword = (event) => {
     setPassword(event.target.value);
   }
@@ -21,10 +21,30 @@ function Register() {
   const submitPassword = (event) => {
     setSubmitted(true)
 
-    // if(passGood && passMatch){
-    //   do logic here
-    // }
-  }
+    if(passGood && passMatch){
+      fetch('http://localhost:3000/upload', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.message === 'Success') {
+            setSuccess(true)
+            // run logic here
+            console.log('Upload successful');
+          } else {
+            console.log('Upload failed');
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    };
+    }
+  
 
   const fadeIn = useSpring({
     from: { opacity: 0, transform: "translate3d(0, -50px, 0)" },

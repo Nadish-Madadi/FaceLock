@@ -1,5 +1,5 @@
 const express = require("express");
-const saveImages = require("../backend/helpers/saveImages");
+const saveImages = require("../backend/helpers/saveImages.js");
 
 const app = express();
 app.use(express.json());
