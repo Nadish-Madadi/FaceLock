@@ -20,7 +20,7 @@ function FaceDetectionRegister() {
           <iframe 
             src="http://localhost:5000/video_feed"
             title="Webcam"
-            className="w-[640px] h-[640px] scale-50 overflow-hidden -my-32"
+            className="w-[640px] h-[640px] lg:scale-50 sm:scale-[0.4] scale-[0.3] overflow-hidden lg:-my-32 sm:-my-48 -my-56"
           />
           {/* aight rick replace the image above ^. this is where you can do ur magic and do the webcam stuffs ig idk */}
           <p class="text-sm sm:text-lg lg:text-2xl text-center">

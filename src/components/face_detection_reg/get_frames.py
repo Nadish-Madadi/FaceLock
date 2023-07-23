@@ -9,5 +9,7 @@ class Camera():
     
     def frame_capture(self):
         ret, frame = self.video.read()
+
         ret, jpeg = cv2.imencode(".jpg", frame)
+
         return jpeg.tobytes()
